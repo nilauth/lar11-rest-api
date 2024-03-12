@@ -30,6 +30,8 @@ class CustomerQuery {
             'gte' => '>=',
         ];
 
+
+//    transform fn used in CustomerController
     public function transform( Request $request ): array {
         $eloQuery = [];
 
