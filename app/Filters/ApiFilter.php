@@ -1,37 +1,25 @@
 <?php
 
-namespace App\Services\v1;
+namespace App\Filters;
 
 use Illuminate\Http\Request;
 
-class CustomerQuery {
+class ApiFilter {
     protected array $safeParams
         = [
-            'id'         => [ 'eq' ],
-            'name'       => [ 'eq' ],
-            'type'       => [ 'eq' ],
-            'email'      => [ 'eq' ],
-            'address'    => [ 'eq' ],
-            'city'       => [ 'eq' ],
-            'postalCode' => [ 'eq', 'gt', 'lt' ],
+
         ];
 
     protected array $columnMap
         = [
-            'postalCode' => 'postal_code',
+
         ];
 
     protected array $operatorMap
-        = [
-            'eq'  => '=',
-            'lt'  => '<',
-            'lte' => '<=',
-            'gt'  => '>',
-            'gte' => '>=',
-        ];
+        = [];
 
 
-//    transform fn used in CustomerController
+//    transform fn works with CustomerController & InvoiceController
     public function transform( Request $request ): array {
         $eloQuery = [];
 
