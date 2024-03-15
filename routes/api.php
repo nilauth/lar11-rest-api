@@ -10,8 +10,9 @@ Route::get( '/user', function ( Request $request ) {
 } )->middleware( 'auth:sanctum' );
 
 Route::group( [
-    'prefix'    => 'v1',
-    'namespace' => 'App\Http\Controllers\api\v1',
+    'prefix'     => 'v1',
+    'namespace'  => 'App\Http\Controllers\api\v1',
+    'middleware' => 'auth:sanctum',
 ], function () {
     Route::apiResource( 'customers', CustomerController::class );
     Route::apiResource( 'invoices', InvoiceController::class );
